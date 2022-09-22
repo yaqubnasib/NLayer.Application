@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+@model ProductViewModel
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>CreatedDate</td>
+            <td>Category</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.ProductWithCategories)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.CreatedDate</td>
+                <td>@item.Category.Name</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,9 @@
+api =>{
+https://localhost:7004
+http://localhost:5004
+} 
+
+MVC => {
+https://localhost:7173
+http://localhost:5173
+} 
