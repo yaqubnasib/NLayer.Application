@@ -5,15 +5,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Why does not Working for base class ?
-builder.Services.AddHttpClient<ProductApiService>(option =>
-{
+Action<HttpClient> x = (option) => {
     option.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
-});
-builder.Services.AddHttpClient<CategoryApiService>(option =>
-{
-    option.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
-});
+};
+
+builder.Services.AddHttpClient<ProductApiService>(x);
+builder.Services.AddHttpClient<CategoryApiService>(x);
+
 
 
 var app = builder.Build();

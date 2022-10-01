@@ -2,13 +2,9 @@
 
 namespace NLayer.Web.Services
 {
-    public class ProductApiService 
+    public class ProductApiService : BaseApiService
     {
-        private readonly HttpClient _httpClient;    
-        public ProductApiService(HttpClient _httpClient) 
-        {
-            this._httpClient = _httpClient;
-        }
+        public ProductApiService(HttpClient _httpClient):base(_httpClient) {}
 
 
         public async Task<List<ProductWithCategoryDto>> GetProductsWithCategoryAsync()
